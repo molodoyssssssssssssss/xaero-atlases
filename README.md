@@ -4,15 +4,15 @@
 
 **How it works:**
 You can no longer open the world map using the required key. You need craft Atlas, it crafting from Filled Map and Book And Quill...
-![[imgs/crafting.png]]
+![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/crafting.png?raw=true)
 
 Also you can find it in...
-![[imgs/2026-08-18_16.38.42.png]]
+![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/2026-08-18_16.38.42.png)
 **Shipwrecks**
 
-![[imgs/2026-08-18_16.40.31.png]]
+![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/imgs/2026-08-18_16.40.31.png)
 **Buried Treasures**
 
 And...
-![[imgs/2026-08-18_16.57.57.png]]
+![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/imgs/2026-08-18_16.57.57.png) 
 **Cartographer chest in village**
