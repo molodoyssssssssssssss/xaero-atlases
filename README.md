@@ -10,9 +10,9 @@ Also you can find it in...
 ![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/2026-08-18_16.38.42.png?raw=true)
 **Shipwrecks**
 
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/imgs/2026-08-18_16.40.31.png?raw=true)
+![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/2026-08-18_16.40.31.png?raw=true)
 **Buried Treasures**
 
 And...
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/imgs/2026-08-18_16.57.57.png?raw=true) 
+![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/2026-08-18_16.57.57.png?raw=true) 
 **Cartographer chest in village**
