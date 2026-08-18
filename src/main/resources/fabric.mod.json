@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "xaeroatlases",
+  "version": "${version}",
+  "name": "XaeroAtlases",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/xaeroatlases/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.molodoyss.xaeroatlases.client.XaeroatlasesClient"
+    ],
+    "main": [
+      "org.molodoyss.xaeroatlases.Xaeroatlases"
+    ]
+  },
+  "mixins": [
+    "xaeroatlases.mixins.json",
+    {
+      "config": "xaeroatlases.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": ">=${minecraft_version}",
+    "xaeroworldmap": "*"
+  },
+  "recommends": {
+    "xaerominimap": "*"
+  }
+}
