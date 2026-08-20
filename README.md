@@ -1,5 +1,8 @@
 ![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/preview.png?raw=true)
 
+Requires: [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map), [Fabric API](https://modrinth.com/mod/fabric-api)
+Recommended: [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap)
+
 [GITHUB](https://github.com/molodoyssssssssssssss/xaero-atlases)  
 
 **Xaero Atlases** - a simple mod, which adds item "Atlas", that allows you open World Map from the same name Xaero's mod.
