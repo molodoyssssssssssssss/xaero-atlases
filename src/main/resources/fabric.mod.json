@@ -3,11 +3,16 @@
   "id": "xaeroatlases",
   "version": "${version}",
   "name": "XaeroAtlases",
-  "description": "",
-  "authors": [],
-  "contact": {},
+  "description": "Xaero Atlases - a simple mod, which adds item \"Atlas\", that allows you open World Map from the same name Xaero's mod.",
+  "authors": [
+    "molodoyss"
+  ],
+  "contact": {
+    "email": "molodoj445@gmail.com",
+    "sources": "https://github.com/molodoyssssssssssssss/xaero-atlases"
+  },
   "license": "GPL-3.0",
-  "icon": "assets/xaeroatlases/icon.png",
+  "icon": "assets/xaero_atlases/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
