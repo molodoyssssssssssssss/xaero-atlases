@@ -13,6 +13,7 @@
   },
   "mixins": [
     "AddWaypointFunctionMixin",
+    "ClientPacketListenerMixin",
     "ControlsHandlerMixin",
     "SwitchWaypointSetFunctionMixin",
     "TemporaryWaypointFunctionMixin",

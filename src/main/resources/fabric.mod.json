@@ -20,6 +20,9 @@
     ],
     "main": [
       "org.molodoyss.xaeroatlases.Xaeroatlases"
+    ],
+    "modmenu": [
+      "org.molodoyss.xaeroatlases.client.config.ConfigModMenuIntegration"
     ]
   },
   "mixins": [
@@ -33,9 +36,14 @@
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
     "minecraft": ">=${minecraft_version}",
-    "xaeroworldmap": "*"
+    "xaeroworldmap": ">=1.44.2",
+    "modmenu": ">=20.0.1",
+    "yet_another_config_lib_v3": ">=3.9.6+26.2-fabric"
   },
   "recommends": {
-    "xaerominimap": "*"
+    "xaerominimap": ">=26.4.2"
+  },
+  "breaks": {
+    "journeymap": "*"
   }
 }

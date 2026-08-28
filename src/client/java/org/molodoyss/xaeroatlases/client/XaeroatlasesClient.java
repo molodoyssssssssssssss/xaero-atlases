@@ -6,37 +6,56 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.Items;
 import org.molodoyss.xaeroatlases.ModItems;
 import org.molodoyss.xaeroatlases.Xaeroatlases;
-import xaero.hud.minimap.Minimap;
+import org.molodoyss.xaeroatlases.client.commands.ModClientCommands;
+import org.molodoyss.xaeroatlases.client.packet_handlers.ClientPacketHandler;
 import xaero.hud.minimap.common.config.option.MinimapProfiledConfigOptions;
-import xaero.hud.minimap.controls.key.MinimapKeyMappings;
-import xaero.hud.xminimap.controls.key.XMinimapKeyMappings;
 import xaero.map.WorldMap;
 import xaero.map.WorldMapSession;
 import xaero.map.common.config.option.WorldMapProfiledConfigOptions;
-import xaero.map.core.XaeroWorldMapCore;
-import xaero.map.core.XaeroWorldMapCoreFabric;
 import xaero.map.gui.GuiMap;
-import xaero.map.mods.XaeroWorldMapModMenu;
-import xaero.map.settings.ModSettings;
 import xaero.minimap.XaeroMinimap;
-import xaero.minimap.XaeroMinimapFabric;
 
 public class XaeroatlasesClient implements ClientModInitializer {
     boolean isPressedUseKey = false;
+
+    private static boolean isReducedDebugInfo = false;
+    private static boolean isEnabledCompassCoords = false;
+
+    public static boolean isReducedDebugInfo() {
+        return isReducedDebugInfo;
+    }
+    public static boolean isEnabledCompassCoords() {
+        return isEnabledCompassCoords;
+    }
+
+    public static void setReducedDebugInfo(boolean isReducedDebugInfo) {
+        XaeroatlasesClient.isReducedDebugInfo = isReducedDebugInfo;
+    }
+    public static void setEnabledCompassCoords(boolean isEnabledCompassCoords) {
+        XaeroatlasesClient.isEnabledCompassCoords = isEnabledCompassCoords;
+    }
+
+
     @Override
     public void onInitializeClient() {
+        ClientPacketHandler.handleAll();
 
-        ClientTickEvents.END_CLIENT_TICK.register(level -> {
+        ModClientCommands.init();
 
-            if (Minecraft.getInstance().player == null) return;
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+
+            if (client.player == null) return;
+
             WorldMap.INSTANCE.getConfigs().getClientConfigManager().getCurrentProfile().set(WorldMapProfiledConfigOptions.CAVE_MODE_ALLOWED, false);
             WorldMap.INSTANCE.getConfigs().getClientConfigManager().getCurrentProfile().set(WorldMapProfiledConfigOptions.MINIMAP_RADAR, false);
 
-            LocalPlayer player = Minecraft.getInstance().player;
+            LocalPlayer player = client.player;
             boolean isEquippedAtlas = player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.ATLAS) || player.getItemInHand(InteractionHand.OFF_HAND).is(ModItems.ATLAS);
             for (ModContainer mod : FabricLoader.getInstance().getAllMods()) {
                 if (mod.getMetadata().getId().equals("xaerominimap")) {
@@ -45,11 +64,12 @@ public class XaeroatlasesClient implements ClientModInitializer {
                 }
             }
 
-            if (!Minecraft.getInstance().options.keyUse.isDown()) {
+            if (!client.options.keyUse.isDown()) {
                 isPressedUseKey = false;
             }
-            while (Minecraft.getInstance().options.keyUse.isDown() && !isPressedUseKey) {
-                WorldMap.INSTANCE.getConfigs().getClientConfigManager().getCurrentProfile().set(WorldMapProfiledConfigOptions.COORDINATES, false);
+            while (client.options.keyUse.isDown() && !isPressedUseKey) {
+                boolean isEquippedCompass = player.getItemInHand(InteractionHand.MAIN_HAND).is(Items.COMPASS) || player.getItemInHand(InteractionHand.OFF_HAND).is(Items.COMPASS);
+                WorldMap.INSTANCE.getConfigs().getClientConfigManager().getCurrentProfile().set(WorldMapProfiledConfigOptions.COORDINATES, (!isReducedDebugInfo) || (isEnabledCompassCoords && isEquippedCompass));
 
                 isPressedUseKey = true;
                 if (!isEquippedAtlas) return;
@@ -59,8 +79,7 @@ public class XaeroatlasesClient implements ClientModInitializer {
                     hand = InteractionHand.OFF_HAND;
                 }
                 player.swing(hand);
-                Minecraft mc = Minecraft.getInstance();
-                mc.gui.setScreen((Screen) (Object) new GuiMap((Screen) null, (Screen) null, WorldMapSession.getCurrentSession().getMapProcessor(), mc.getCameraEntity()));
+                client.gui.setScreen((Screen) (Object) new GuiMap((Screen) null, (Screen) null, WorldMapSession.getCurrentSession().getMapProcessor(), client.getCameraEntity()));
             }
         });
     }

@@ -24,14 +24,16 @@ public class ModLootTableModifier {
             if (source.isBuiltin() && key.equals(CARTOGRAPHER_VILLAGE_ID)) {
                 LootPool.Builder poolBuilder = LootPool.lootPool().add(LootItem.lootTableItem(ModItems.ATLAS));
                 tableBuilder.withPool(poolBuilder);
+                Xaeroatlases.LOGGER.info("Modified Loot Table %s!".formatted(key.identifier().toString()));
             } else if(source.isBuiltin() && key.equals(BURIED_TREASURE_ID)) {
                 LootPool.Builder poolBuilder = LootPool.lootPool().add(LootItem.lootTableItem(ModItems.ATLAS));
                 tableBuilder.withPool(poolBuilder);
+                Xaeroatlases.LOGGER.info("Modified Loot Table %s!".formatted(key.identifier().toString()));
             } else if (source.isBuiltin() && (key.equals(SHIPWRECK_MAP_ID) || key.equals(SHIPWRECK_SUPPLY_ID)|| key.equals(SHIPWRECK_TREASURE_ID))) {
                 LootPool.Builder poolBuilder = LootPool.lootPool().add(LootItem.lootTableItem(ModItems.ATLAS));
                 tableBuilder.withPool(poolBuilder);
+                Xaeroatlases.LOGGER.info("Modified Loot Table %s!".formatted(key.identifier().toString()));
             }
-            Xaeroatlases.LOGGER.info("Modified Loot Table %s!".formatted(key.identifier().toString()));
         }));
     }
 }

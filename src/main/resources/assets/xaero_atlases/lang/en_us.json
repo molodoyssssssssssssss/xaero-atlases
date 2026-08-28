@@ -1,3 +1,15 @@
 {
-  "item.xaero_atlases.atlas": "Atlas"
+  "item.xaero_atlases.atlas": "Atlas",
+
+  "commands.xaero-atlases.config.reload.succesful": "Succesful reloaded config!",
+  "commands.xaero-atlases.config.set.enable_coords_with_compass.succesful": "Succesful set value of 'enable_coords_with_compass' to %1$s",
+  "commands.xaero-atlases.config.get.enable_coords_with_compass.succesful": "The config value of 'enable_coords_with_compass' is %1$s",
+  "commands.xaero-atlases.config.get.reduced_debug_info.succesful": "The config value of 'reduced_debug_info' is %1$s",
+  "commands.xaero-atlases.config.set.reduced_debug_info.succesful": "Succesful set value of 'reduced_debug_info' to %1$s",
+
+  "gui.xaero-atlases.config.category.basic": "Basic",
+  "gui.xaero-atlases.config.option.compass-coords": "Compass shows coordinates",
+  "gui.xaero-atlases.config.option.compass-coords.description": "Shows coordinates in action bar when compass in a hand.",
+  "gui.xaero-atlases.config.option.reduced_debug_info": "Reduced Debug Info",
+  "gui.xaero-atlases.config.option.reduced_debug_info.description": "Sets a value of gamerule 'reduced_debug_info'."
 }
