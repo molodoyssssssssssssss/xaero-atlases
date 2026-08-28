@@ -1,7 +1,12 @@
 ![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/preview.png?raw=true)
 
-Required: [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map), [Fabric API](https://modrinth.com/mod/fabric-api)
-Recommended: [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap)
+#### Required: 
+ - [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map), 
+ - [Fabric API](https://modrinth.com/mod/fabric-api), 
+ - [Mod Menu](https://modrinth.com/mod/modmenu), 
+ - [Yet Another Config Lib](https://modrinth.com/mod/yacl)
+#### Recommended: 
+ - [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap)
 
 [GITHUB](https://github.com/molodoyssssssssssssss/xaero-atlases)  
 
