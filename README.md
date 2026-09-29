@@ -1,28 +1,35 @@
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/preview.png?raw=true)
+![preview](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/preview.png?raw=true)
+**Xaero Atlases** - a simple mod, which adds item "Atlas", that allows you open World Map from the same name Xaero's mod.
 
-#### Required: 
+**How it works:**
+You can no longer open the world map using the required key. You need craft Atlas, it crafting from Filled Map and Book And Quill... From **v1.2** you can craft atlas with compass from atlas and compass 
+
+
+---
+#### Required Mods: 
  - [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map), 
  - [Fabric API](https://modrinth.com/mod/fabric-api), 
  - [Mod Menu](https://modrinth.com/mod/modmenu), 
  - [Yet Another Config Lib](https://modrinth.com/mod/yacl)
-#### Recommended: 
+#### Recommended Mods: 
  - [Xaero's Minimap](https://modrinth.com/mod/xaeros-minimap)
 
-[GITHUB](https://github.com/molodoyssssssssssssss/xaero-atlases)  
+---
+**Links**
 
-**Xaero Atlases** - a simple mod, which adds item "Atlas", that allows you open World Map from the same name Xaero's mod.
+[![modrinth](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/modrinth.png?raw=true)](https://modrinth.com/mod/xaero-atlases)    [![github](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/github.png?raw=true)](https://github.com/molodoyssssssssssssss/xaero-atlases/tree/main)
+---
 
-**How it works:**
-You can no longer open the world map using the required key. You need craft Atlas, it crafting from Filled Map and Book And Quill...
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/crafting.png?raw=true)
+**Crafts**             
+---
+<img src="https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/atlases_crafting.png?raw=true" alt="Atlases crafting" width="50%"> 
 
-Also you can find it in...
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/shipwreck.png?raw=true)
-**Shipwrecks**
+**Where it spawns:**
+---
 
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/buried_treasure.png?raw=true)
-**Buried Treasures**
+<img src="https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/atlas_spawn_preview.png?raw=true" alt = "Atlas spawn preview" width="125%">
 
-And...
-![alt text](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/cartographer_chest.png?raw=true) 
-**Cartographer chest in village**
+**Config Menu**
+---
+<img src="https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/menu_options_in_v1_2.png?raw=true" alt = "Config Menu" width="125%">
+
