@@ -16,9 +16,9 @@ You can no longer open the world map using the required key. You need craft Atla
 
 ---
 **Links**
-
-[![modrinth](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/modrinth.png?raw=true)](https://modrinth.com/mod/xaero-atlases)    [![github](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/github.png?raw=true)](https://github.com/molodoyssssssssssssss/xaero-atlases/tree/main)
 ---
+[![modrinth](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/modrinth.png?raw=true)](https://modrinth.com/mod/xaero-atlases)    [![github](https://github.com/molodoyssssssssssssss/xaero-atlases/blob/main/imgs/github.png?raw=true)](https://github.com/molodoyssssssssssssss/xaero-atlases/tree/main)
+
 
 **Crafts**             
 ---
