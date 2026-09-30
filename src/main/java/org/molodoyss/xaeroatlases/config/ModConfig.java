@@ -6,8 +6,10 @@ import de.marhali.json5.Json5Primitive;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.gamerules.GameRules;
 import org.molodoyss.xaeroatlases.Xaeroatlases;
+import org.molodoyss.xaeroatlases.api.FormattingManager;
 import org.molodoyss.xaeroatlases.payload.ClientboundEnabledCompassCordsPacket;
 import org.molodoyss.xaeroatlases.payload.ClientboundRDBGameruleValuePacket;
 
@@ -16,12 +18,13 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.text.Normalizer;
 
 public class ModConfig {
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("xaeroatlases.json5");
 
-    private static boolean enableShowingCoordsWithCompass = false;
-    private static boolean reducedDebugInfo = false;
+    private static boolean enableShowingCoordsWithCompass = true;
+    private static boolean reducedDebugInfo = true;
 
     private static MinecraftServer server;
 
@@ -83,10 +86,16 @@ public class ModConfig {
             Json5Object obj = new Json5Object();
             Json5Primitive boolValue = Json5Primitive.fromBoolean(enableShowingCoordsWithCompass);
             Json5Primitive boolValue1 = Json5Primitive.fromBoolean(reducedDebugInfo);
+            Json5Primitive stringValue = Json5Primitive.fromString(FormattingManager.getFormattingDefaultTextRaw());
+            Json5Primitive stringValue1 = Json5Primitive.fromString(FormattingManager.getFormattingValueTextRaw());
+            stringValue.setComment("sets formatting in action bar, when showing coords of DEFAULT text");
+            stringValue1.setComment("sets formatting in action bar, when showing coords of VALUE text");
             boolValue.setComment("allows to showing coordinates in action bar when player have compass in hand.");
             boolValue1.setComment("sets value of gamerule 'reduced_debug_info'.");
             obj.add("enable_coords_with_compass", boolValue);
             obj.add("reduced_debug_info", boolValue1);
+            obj.add("formatting_default_text", stringValue);
+            obj.add("formatting_value_text", stringValue1);
             stream.write(json5.serialize(obj).getBytes(StandardCharsets.UTF_8));
             stream.close();
             Xaeroatlases.LOGGER.info("Successfully updated config file!");
@@ -111,6 +120,8 @@ public class ModConfig {
             Json5Object obj = json5.parse(json).getAsJson5Object();
             enableShowingCoordsWithCompass = obj.get("enable_coords_with_compass").getAsBoolean();
             reducedDebugInfo = obj.get("reduced_debug_info").getAsBoolean();
+            FormattingManager.setFormattingDefaultText(obj.get("formatting_default_text").getAsString());
+            FormattingManager.setFormattingValueText(obj.get("formatting_value_text").getAsString());
             if (server != null) {
                 server.getGameRules().set(GameRules.REDUCED_DEBUG_INFO, reducedDebugInfo, server);
                 ClientboundRDBGameruleValuePacket.broadcast(server.getPlayerList().getPlayers(), reducedDebugInfo);

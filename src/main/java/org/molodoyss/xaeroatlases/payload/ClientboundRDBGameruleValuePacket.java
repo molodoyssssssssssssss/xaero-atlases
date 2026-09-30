@@ -13,7 +13,7 @@ import java.util.List;
 
 public record ClientboundRDBGameruleValuePacket(boolean value) implements CustomPacketPayload {
 
-    public static final Identifier ID = Identifier.fromNamespaceAndPath(Xaeroatlases.ID, "clientbound/reduced_debug_info_value");
+    public static final Identifier ID = Xaeroatlases.id("clientbound/reduced_debug_info_value");
 
     public static final Type<ClientboundRDBGameruleValuePacket> TYPE = new Type<>(ID);
     public static final StreamCodec<RegistryFriendlyByteBuf, ClientboundRDBGameruleValuePacket> CODEC = StreamCodec.composite(ByteBufCodecs.BOOL, ClientboundRDBGameruleValuePacket::value, ClientboundRDBGameruleValuePacket::new);

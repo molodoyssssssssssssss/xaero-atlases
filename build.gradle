@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = project.mod_version + "+" + project.minecraft_version
 group = project.maven_group
 
 base {
@@ -79,16 +79,24 @@ processResources {
     inputs.property "version", project.version
     inputs.property "minecraft_version", project.minecraft_version
     inputs.property "loader_version", project.loader_version
+    inputs.property "mod_menu", project.mod_menu
+    inputs.property "yacl", project.yacl
+    inputs.property "worldmap", project.worldmap
+    inputs.property "minimap", project.minimap
     filteringCharset "UTF-8"
 
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
-                "loader_version": project.loader_version
+                "loader_version": project.loader_version,
+                "mod_menu": project.mod_menu,
+                "yacl": project.yacl,
+                "worldmap": project.worldmap,
+                "minimap": project.minimap
     }
 }
 
-def targetJavaVersion = 25
+def targetJavaVersion = Integer.parseInt(project.java as String)
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly

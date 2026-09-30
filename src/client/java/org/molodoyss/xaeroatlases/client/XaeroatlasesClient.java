@@ -63,24 +63,6 @@ public class XaeroatlasesClient implements ClientModInitializer {
                     XaeroMinimap.INSTANCE.getHudConfigs().getClientConfigManager().getCurrentProfile().set(MinimapProfiledConfigOptions.MINIMAP_ITEM, "minecraft:barrier");
                 }
             }
-
-            if (!client.options.keyUse.isDown()) {
-                isPressedUseKey = false;
-            }
-            while (client.options.keyUse.isDown() && !isPressedUseKey) {
-                boolean isEquippedCompass = player.getItemInHand(InteractionHand.MAIN_HAND).is(Items.COMPASS) || player.getItemInHand(InteractionHand.OFF_HAND).is(Items.COMPASS);
-                WorldMap.INSTANCE.getConfigs().getClientConfigManager().getCurrentProfile().set(WorldMapProfiledConfigOptions.COORDINATES, (!isReducedDebugInfo) || (isEnabledCompassCoords && isEquippedCompass));
-
-                isPressedUseKey = true;
-                if (!isEquippedAtlas) return;
-                InteractionHand hand = InteractionHand.MAIN_HAND;
-                if (player.getItemInHand(InteractionHand.MAIN_HAND).is(ModItems.ATLAS)) {
-                } else if (player.getItemInHand(InteractionHand.OFF_HAND).is(ModItems.ATLAS)) {
-                    hand = InteractionHand.OFF_HAND;
-                }
-                player.swing(hand);
-                client.gui.setScreen((Screen) (Object) new GuiMap((Screen) null, (Screen) null, WorldMapSession.getCurrentSession().getMapProcessor(), client.getCameraEntity()));
-            }
         });
     }
 }

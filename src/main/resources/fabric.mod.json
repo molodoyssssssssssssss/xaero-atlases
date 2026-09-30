@@ -37,8 +37,8 @@
     "fabric-api": "*",
     "minecraft": ">=${minecraft_version}",
     "xaeroworldmap": ">=1.44.2",
-    "modmenu": ">=20.0.1",
-    "yet_another_config_lib_v3": ">=3.9.6+26.2-fabric"
+    "modmenu": ">=${mod_menu}",
+    "yet_another_config_lib_v3": ">=${yacl}"
   },
   "recommends": {
     "xaerominimap": ">=26.4.2"

@@ -4,6 +4,8 @@ import com.mojang.brigadier.context.CommandContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import org.molodoyss.xaeroatlases.api.FormattingManager;
+import org.molodoyss.xaeroatlases.api.Utils;
 import org.molodoyss.xaeroatlases.config.ModConfig;
 import org.molodoyss.xaeroatlases.payload.ClientboundEnabledCompassCordsPacket;
 
@@ -34,5 +36,32 @@ public class ConfigCommands {
         context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.set.reduced_debug_info.succesful", String.valueOf(value)));
         return 1;
     }
+    public static int configSetFormattingDefaultText(CommandContext<CommandSourceStack> context, String value) {
+        FormattingManager.setFormattingDefaultText(value);
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.set.formatting_default_text");
+        component.append("%sDefault".formatted(FormattingManager.getFormattingDefaultTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+    public static int configSetFormattingValueText(CommandContext<CommandSourceStack> context, String value) {
+        FormattingManager.setFormattingValueText(value);
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.set.formatting_value_text");
+        component.append("%sValue".formatted(FormattingManager.getFormattingValueTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+    public static int configGetFormattingDefaultText(CommandContext<CommandSourceStack> context) {
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.get.formatting_default_text");
+        component.append("%sDefault".formatted(FormattingManager.getFormattingDefaultTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+    public static int configGetFormattingValueText(CommandContext<CommandSourceStack> context) {
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.get.formatting_value_text");
+        component.append("%sValue".formatted(FormattingManager.getFormattingValueTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+
 
 }

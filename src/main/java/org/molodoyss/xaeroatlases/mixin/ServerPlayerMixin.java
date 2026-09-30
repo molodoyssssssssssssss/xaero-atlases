@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import org.molodoyss.xaeroatlases.api.FormattingManager;
 import org.molodoyss.xaeroatlases.api.Utils;
 import org.molodoyss.xaeroatlases.config.ModConfig;
+import org.molodoyss.xaeroatlases.tags.ModItemTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,12 +24,11 @@ public abstract class ServerPlayerMixin extends Player {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void tick(CallbackInfo ci) {
-        boolean isCompassInHand = this.equipment.get(EquipmentSlot.MAINHAND).is(Items.COMPASS) || this.equipment.get(EquipmentSlot.OFFHAND).is(Items.COMPASS);
-        if (isCompassInHand && ModConfig.isEnabledShowingCoordsWithCompass()) {
-            String valueFormat = FormattingManager.getFormattingValueText();
-            String defaultTextFormat = FormattingManager.getFormattingDefaultText();
+        if (!Utils.isItemInHand(this, ModItemTags.IS_SHOWING_COORDS)) return;
 
-            this.sendOverlayMessage(Component.literal("%s%d§r%s | §r%s%d§r%s | §r%s%d§r%s | §r%s%s".formatted(valueFormat, blockPosition().getX(), defaultTextFormat, valueFormat, blockPosition().getY(), defaultTextFormat, valueFormat, blockPosition().getZ(), defaultTextFormat, valueFormat, Utils.getWithBigLetterInTheBeginning(getDirection().toString()))));
-        }
+        String valueFormat = FormattingManager.getFormattingValueTextFormatted();
+        String defaultTextFormat = FormattingManager.getFormattingDefaultTextFormatted();
+
+        this.sendOverlayMessage(Component.literal("%s%d§r%s | §r%s%d§r%s | §r%s%d§r%s | §r%s%s".formatted(valueFormat, blockPosition().getX(), defaultTextFormat, valueFormat, blockPosition().getY(), defaultTextFormat, valueFormat, blockPosition().getZ(), defaultTextFormat, valueFormat, Component.translatable("text.xaero-atlases.location.direction.%s".formatted(this.getDirection().toString())).getString())));
     }
 }

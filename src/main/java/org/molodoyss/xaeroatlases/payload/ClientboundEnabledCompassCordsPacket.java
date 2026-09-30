@@ -15,7 +15,7 @@ import java.util.List;
 
 public record ClientboundEnabledCompassCordsPacket(boolean value) implements CustomPacketPayload {
 
-    public static Identifier ID = Identifier.fromNamespaceAndPath(Xaeroatlases.ID, "clientbound/enabled_compass_coords_packet");
+    public static Identifier ID = Xaeroatlases.id("clientbound/enabled_compass_coords_packet");
     public static Type<ClientboundEnabledCompassCordsPacket> TYPE = new Type<>(ID);
     public static StreamCodec<RegistryFriendlyByteBuf, ClientboundEnabledCompassCordsPacket> CODEC = StreamCodec.composite(
             ByteBufCodecs.BOOL,
