@@ -1,0 +1,34 @@
+{
+  "item.xaero_atlases.atlas": "Atlas",
+  "item.xaero_atlases.atlas_with_compass": "Atlas With Compass",
+
+  "commands.xaero-atlases.config.reload.succesful": "Successful reloaded config!",
+  "commands.xaero-atlases.config.set.enable_coords_with_compass.succesful": "Successful set value of 'enable_coords_with_compass' to %1$s",
+  "commands.xaero-atlases.config.get.enable_coords_with_compass.succesful": "The config value of 'enable_coords_with_compass' is %1$s",
+  "commands.xaero-atlases.config.get.reduced_debug_info.succesful": "The config value of 'reduced_debug_info' is %1$s",
+  "commands.xaero-atlases.config.set.reduced_debug_info.succesful": "Successful set value of 'reduced_debug_info' to %1$s",
+  "commands.xaero-atlases.config.set.formatting_default_text": "Successful set value of 'formatting_default_text', example text with this formatting ",
+  "commands.xaero-atlases.config.set.formatting_value_text": "Successful set value of 'formatting_value_text', example text with this formatting ",
+  "commands.xaero-atlases.config.get.formatting_default_text": "Example text with this formatting 'formatting_default_text' ",
+  "commands.xaero-atlases.config.get.formatting_value_text": "Example text with this formatting 'formatting_value_text' ",
+
+  "gui.xaero-atlases.config.category.basic": "Basic",
+  "gui.xaero-atlases.config.option.compass-coords": "Compass shows coordinates",
+  "gui.xaero-atlases.config.option.compass-coords.description": "Shows coordinates in action bar when compass in a hand.",
+  "gui.xaero-atlases.config.option.reduced_debug_info": "Reduced Debug Info",
+  "gui.xaero-atlases.config.option.reduced_debug_info.description": "Sets a value of gamerule 'reduced_debug_info'.",
+  "gui.xaero-atlases.config.option.formatting_default_text": "Formatting of default text in coords info",
+  "gui.xaero-atlases.config.option.formatting_default_text.description": "What formatting will be of default text when in action bar shows coordinates. (For edit formatting you can use §lSECTION SYMBOL §ror '&')",
+  "gui.xaero-atlases.config.option.formatting_value_text": "Formatting of value text in coords info",
+  "gui.xaero-atlases.config.option.formatting_value_text.description": "What formatting will be of value text when in action bar shows coordinates. (For edit formatting you can use §lSECTION SYMBOL §ror '&')",
+
+  "text.xaero-atlases.location.direction.up": "Up",
+  "text.xaero-atlases.location.direction.down": "Down",
+  "text.xaero-atlases.location.direction.south": "South",
+  "text.xaero-atlases.location.direction.north": "North",
+  "text.xaero-atlases.location.direction.east": "East",
+  "text.xaero-atlases.location.direction.west": "West",
+  "item.xaero_atlases.showing_coords_item.tooltip_1": "This item Shows",
+  "item.xaero_atlases.showing_coords_item.tooltip_2": "Coordinates in",
+  "item.xaero_atlases.showing_coords_item.tooltip_3": "Action bar"
+}

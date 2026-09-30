@@ -1,0 +1,67 @@
+package org.molodoyss.xaeroatlases.command;
+
+import com.mojang.brigadier.context.CommandContext;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import org.molodoyss.xaeroatlases.api.FormattingManager;
+import org.molodoyss.xaeroatlases.api.Utils;
+import org.molodoyss.xaeroatlases.config.ModConfig;
+import org.molodoyss.xaeroatlases.payload.ClientboundEnabledCompassCordsPacket;
+
+public class ConfigCommands {
+    public static int reloadConfigCommand(CommandContext<CommandSourceStack> context) {
+        ModConfig.init();
+        context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.reload.succesful"));
+        return 1;
+    }
+
+    public static int configSetEnabledCoordsWithCompassCommand(CommandContext<CommandSourceStack> context, boolean value) {
+        ModConfig.setEnabledShowingCoordsWithCompass(value);
+        context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.set.enable_coords_with_compass.succesful", String.valueOf(value)));
+        return 1;
+    }
+
+    public static int configGetEnabledCoordsWithCompassCommand(CommandContext<CommandSourceStack> context) {
+        context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.get.enable_coords_with_compass.succesful", String.valueOf(ModConfig.isEnabledShowingCoordsWithCompass())));
+        return 1;
+    }
+
+    public static int configGetReducedDebugInfoCommand(CommandContext<CommandSourceStack> context) {
+        context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.get.reduced_debug_info.succesful", String.valueOf(ModConfig.isEnabledShowingCoordsWithCompass())));
+        return 1;
+    }
+    public static int configSetReducedDebugInfoCommand(CommandContext<CommandSourceStack> context, boolean value) {
+        ModConfig.setReducedDebugInfo(value);
+        context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.set.reduced_debug_info.succesful", String.valueOf(value)));
+        return 1;
+    }
+    public static int configSetFormattingDefaultText(CommandContext<CommandSourceStack> context, String value) {
+        FormattingManager.setFormattingDefaultText(value);
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.set.formatting_default_text");
+        component.append("%sDefault".formatted(FormattingManager.getFormattingDefaultTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+    public static int configSetFormattingValueText(CommandContext<CommandSourceStack> context, String value) {
+        FormattingManager.setFormattingValueText(value);
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.set.formatting_value_text");
+        component.append("%sValue".formatted(FormattingManager.getFormattingValueTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+    public static int configGetFormattingDefaultText(CommandContext<CommandSourceStack> context) {
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.get.formatting_default_text");
+        component.append("%sDefault".formatted(FormattingManager.getFormattingDefaultTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+    public static int configGetFormattingValueText(CommandContext<CommandSourceStack> context) {
+        MutableComponent component = Component.translatable("commands.xaero-atlases.config.get.formatting_value_text");
+        component.append("%sValue".formatted(FormattingManager.getFormattingValueTextFormatted()));
+        context.getSource().sendSystemMessage(component);
+        return 1;
+    }
+
+
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "xaeroatlases",
+  "version": "${version}",
+  "name": "XaeroAtlases",
+  "description": "Xaero Atlases - a simple mod, which adds item \"Atlas\", that allows you open World Map from the same name Xaero's mod.",
+  "authors": [
+    "molodoyss"
+  ],
+  "contact": {
+    "email": "molodoj445@gmail.com",
+    "sources": "https://github.com/molodoyssssssssssssss/xaero-atlases"
+  },
+  "license": "GPL-3.0",
+  "icon": "assets/xaero_atlases/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.molodoyss.xaeroatlases.client.XaeroatlasesClient"
+    ],
+    "main": [
+      "org.molodoyss.xaeroatlases.Xaeroatlases"
+    ],
+    "modmenu": [
+      "org.molodoyss.xaeroatlases.client.config.ConfigModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "xaeroatlases.mixins.json",
+    {
+      "config": "xaeroatlases.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": ">=${minecraft_version}",
+    "xaeroworldmap": ">=1.44.2",
+    "modmenu": ">=${mod_menu}",
+    "yet_another_config_lib_v3": ">=${yacl}"
+  },
+  "recommends": {
+    "xaerominimap": ">=26.4.2"
+  },
+  "breaks": {
+    "journeymap": "*"
+  }
+}
