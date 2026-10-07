@@ -35,13 +35,13 @@
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
-    "minecraft": ">=${minecraft_version}",
-    "xaeroworldmap": ">=1.44.2",
+    "minecraft": "${minecraft_version}",
+    "xaeroworldmap": ">=${worldmap}",
     "modmenu": ">=${mod_menu}",
     "yet_another_config_lib_v3": ">=${yacl}"
   },
   "recommends": {
-    "xaerominimap": ">=26.4.2"
+    "xaerominimap": ">=${minimap}"
   },
   "breaks": {
     "journeymap": "*"
