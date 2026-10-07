@@ -5,6 +5,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CompassItem;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.Level;
 import org.molodoyss.xaeroatlases.payload.ClientboundShowWorldmapPacket;
 
@@ -20,7 +21,7 @@ public class ShowingCoordsAtlasItem extends CompassItem {
         if (level.isClientSide()) return InteractionResult.PASS;
         ClientboundShowWorldmapPacket.broadcast(List.of((ServerPlayer) player), true);
 
-        player.swing(hand, true);
+        player.swing(hand, SwingAnimation.DEFAULT, true);
 
         return InteractionResult.SUCCESS;
     }
