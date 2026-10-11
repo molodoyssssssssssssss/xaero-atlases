@@ -1,10 +1,9 @@
 package org.molodoyss.xaeroatlases;
 
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -21,11 +20,11 @@ public class ModItems {
     public static void init() {}
 
     public static <T extends Item> T register(Item.Properties properties, Function<Item.Properties, T> factory, String id) {
-        return Registry.register(BuiltInRegistries.ITEM, Xaeroatlases.id(id), factory.apply(properties.setId(ResourceKey.create(Registries.ITEM, Xaeroatlases.id(id)))));
+        return Registry.register(BuiltInRegistries.ITEM, Xaeroatlases.id(id), factory.apply(properties));
     }
     public static <T extends Item> T register(Item.Properties properties, Function<Item.Properties, T> factory, String id, ResourceKey<CreativeModeTab> tab) {
         T item = register(properties, factory, id);
-        CreativeModeTabEvents.modifyOutputEvent(tab).register(output -> {
+        ItemGroupEvents.modifyEntriesEvent(tab).register(output -> {
             output.accept(item);
         });
 

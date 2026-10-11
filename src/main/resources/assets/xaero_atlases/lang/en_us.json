@@ -1,6 +1,9 @@
 {
   "item.xaero_atlases.atlas": "Atlas",
   "item.xaero_atlases.atlas_with_compass": "Atlas With Compass",
+  "item.xaero_atlases.showing_coords_item.tooltip_1": "This item Shows",
+  "item.xaero_atlases.showing_coords_item.tooltip_2": "Coordinates in",
+  "item.xaero_atlases.showing_coords_item.tooltip_3": "Action bar",
 
   "commands.xaero-atlases.config.reload.succesful": "Successful reloaded config!",
   "commands.xaero-atlases.config.set.enable_coords_with_compass.succesful": "Successful set value of 'enable_coords_with_compass' to %1$s",
@@ -28,7 +31,8 @@
   "text.xaero-atlases.location.direction.north": "North",
   "text.xaero-atlases.location.direction.east": "East",
   "text.xaero-atlases.location.direction.west": "West",
-  "item.xaero_atlases.showing_coords_item.tooltip_1": "This item Shows",
-  "item.xaero_atlases.showing_coords_item.tooltip_2": "Coordinates in",
-  "item.xaero_atlases.showing_coords_item.tooltip_3": "Action bar"
+  "text.xaero-atlases.debug_mode.enabled": "Enabling debug mode",
+  "text.xaero-atlases.debug_mode.disabled": "Disabling debug mode",
+
+  "key.xaero_atlases.debug_mode": "§3(Xaero Atlases) §rSwitch debug mode"
 }

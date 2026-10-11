@@ -4,12 +4,11 @@ import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.Commands;
-import net.minecraft.resources.Identifier;
-import net.minecraft.server.permissions.PermissionLevel;
+import net.minecraft.resources.ResourceLocation;
 import org.molodoyss.xaeroatlases.Xaeroatlases;
 
 public class ModCommands {
-    private static final Identifier XAERO_ATLASES_COMMAND_PERMISSION_ID = Xaeroatlases.id("xaero-atlases-command-permission");
+    private static final ResourceLocation XAERO_ATLASES_COMMAND_PERMISSION_ID = Xaeroatlases.id("xaero-atlases-command-permission");
 
 
 
@@ -17,7 +16,7 @@ public class ModCommands {
         CommandRegistrationCallback.EVENT.register(((dispatcher, buildContext, selection) -> {
             dispatcher.register(Commands.literal("xaero-atlases")
                     .requires(
-                            commandSourceStack -> commandSourceStack.checkPermission(XAERO_ATLASES_COMMAND_PERMISSION_ID, PermissionLevel.GAMEMASTERS)
+                            commandSourceStack -> commandSourceStack.hasPermission(2)
                     ).then(
                             Commands.literal("config")
                                     .then(Commands.literal("set")

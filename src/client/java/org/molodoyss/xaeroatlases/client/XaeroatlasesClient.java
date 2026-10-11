@@ -14,6 +14,7 @@ import org.molodoyss.xaeroatlases.ModItems;
 import org.molodoyss.xaeroatlases.Xaeroatlases;
 import org.molodoyss.xaeroatlases.client.commands.ModClientCommands;
 import org.molodoyss.xaeroatlases.client.packet_handlers.ClientPacketHandler;
+import org.molodoyss.xaeroatlases.config.ModConfig;
 import xaero.hud.minimap.common.config.option.MinimapProfiledConfigOptions;
 import xaero.map.WorldMap;
 import xaero.map.WorldMapSession;
@@ -47,6 +48,7 @@ public class XaeroatlasesClient implements ClientModInitializer {
         ClientPacketHandler.handleAll();
 
         ModClientCommands.init();
+        ModKeybinds.init();
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
 

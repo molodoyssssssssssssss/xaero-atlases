@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xaero.hud.minimap.controls.key.function.TemporaryWaypointFunction;
 import xaero.hud.minimap.controls.key.function.WaypointMenuFunction;
 
-@Mixin(TemporaryWaypointFunction.class)
+@Mixin(value = TemporaryWaypointFunction.class, remap = false)
 public class TemporaryWaypointFunctionMixin {
     @Inject(at = @At("HEAD"), method = "onPress", cancellable = true)
     private void cancel(CallbackInfo ci) {

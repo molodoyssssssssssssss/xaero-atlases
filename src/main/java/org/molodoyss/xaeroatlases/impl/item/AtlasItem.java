@@ -1,18 +1,18 @@
 package org.molodoyss.xaeroatlases.impl.item;
 
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.component.SwingAnimation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import org.molodoyss.xaeroatlases.payload.ClientboundShowWorldmapPacket;
-
-import java.util.List;
+import org.molodoyss.xaeroatlases.ModNetworkingConstants;
 
 public class AtlasItem extends Item {
     public AtlasItem(Properties properties) {
@@ -20,12 +20,14 @@ public class AtlasItem extends Item {
     }
 
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        if (level.isClientSide()) return InteractionResult.PASS;
-        ClientboundShowWorldmapPacket.broadcast(List.of((ServerPlayer) player), false);
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
 
-        player.swing(hand, SwingAnimation.DEFAULT, true);
+        if (level.isClientSide()) return InteractionResultHolder.pass(player.getItemInHand(interactionHand));
+        ServerPlayNetworking.send((ServerPlayer) player, ModNetworkingConstants.CLIENTBOUND_SHOW_WORLDMAP_PACKET, new FriendlyByteBuf(PacketByteBufs.create().writeBoolean(false)));
 
-        return InteractionResult.SUCCESS;
+        player.swing(interactionHand);
+
+        return InteractionResultHolder.sidedSuccess(player.getItemInHand(interactionHand), true);
     }
+
 }

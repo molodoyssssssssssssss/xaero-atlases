@@ -29,12 +29,6 @@ public class Utils {
     public static boolean isItemInHand(Player player, Holder<Item> item) {
         return player.getItemInHand(InteractionHand.MAIN_HAND).is(item) || player.getItemInHand(InteractionHand.OFF_HAND).is(item);
     }
-    public static boolean isItemInHand(Player player, HolderSet<Item> item) {
-        return player.getItemInHand(InteractionHand.MAIN_HAND).is(item) || player.getItemInHand(InteractionHand.OFF_HAND).is(item);
-    }
-    public static boolean isItemInHand(Player player, ResourceKey<Item> item) {
-        return player.getItemInHand(InteractionHand.MAIN_HAND).is(item) || player.getItemInHand(InteractionHand.OFF_HAND).is(item);
-    }
 
     public static String format(String str) {
         return str.replace('&', PARAGRAPH);

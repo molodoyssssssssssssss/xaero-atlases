@@ -1,5 +1,5 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.17-SNAPSHOT'
+    id 'fabric-loom' version '1.8-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -42,19 +42,27 @@ repositories {
     maven {
         url 'https://jitpack.io'
     }
+    maven {
+        url "https://maven.quiltmc.org/repository/release"
+    }
 }
 
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    implementation "maven.modrinth:xaeros-world-map:fabric-${project.minecraft_version}-${project.worldmap}"
-    compileOnly "maven.modrinth:xaeros-minimap:fabric-${project.minecraft_version}-${project.minimap}"
-    implementation "maven.modrinth:yacl:${project.yacl}+${project.minecraft_version}-fabric"
-    implementation "maven.modrinth:modmenu:${project.mod_menu}"
+    mappings loom.officialMojangMappings()
+
+    modImplementation "maven.modrinth:xaeros-world-map:fabric-${project.minecraft_version}-${project.worldmap}"
+    modCompileOnly "maven.modrinth:xaeros-minimap:fabric-${project.minecraft_version}-${project.minimap}"
+    modRuntimeOnly "maven.modrinth:xaeros-minimap:fabric-${project.minecraft_version}-${project.minimap}"
+    modImplementation "maven.modrinth:yacl:${project.yacl}+${project.minecraft_version}-fabric"
+    implementation "org.quiltmc.parsers:gson:0.2.1"
+    implementation "org.quiltmc.parsers:json:0.2.1"
+    modImplementation "maven.modrinth:modmenu:${project.mod_menu}"
 
     xaerolibSource "maven.modrinth:xaeros-world-map:fabric-${project.minecraft_version}-${project.worldmap}"
     include(implementation "de.marhali:json5-java:3.0.0")
@@ -70,7 +78,7 @@ tasks.register("unpackXaerolib", Sync) {
 compileJava.dependsOn unpackXaerolib
 
 dependencies {
-    implementation(fileTree(layout.buildDirectory.dir("xaerolib")) {
+    modImplementation(fileTree(layout.buildDirectory.dir("xaerolib")) {
         include("*.jar")
     })
 }

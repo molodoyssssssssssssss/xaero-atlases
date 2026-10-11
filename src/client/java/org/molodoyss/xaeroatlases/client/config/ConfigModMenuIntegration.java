@@ -1,22 +1,17 @@
 package org.molodoyss.xaeroatlases.client.config;
 
-import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import dev.isxander.yacl3.api.ConfigCategory;
 import dev.isxander.yacl3.api.Option;
 import dev.isxander.yacl3.api.OptionDescription;
 import dev.isxander.yacl3.api.YetAnotherConfigLib;
-import dev.isxander.yacl3.gui.image.ImageRenderer;
-import dev.isxander.yacl3.gui.image.ImageRendererFactory;
 import dev.isxander.yacl3.gui.image.impl.ResourceTextureImage;
 import dev.isxander.yacl3.impl.controller.StringControllerBuilderImpl;
 import dev.isxander.yacl3.impl.controller.TickBoxControllerBuilderImpl;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import org.molodoyss.xaeroatlases.Xaeroatlases;
 import org.molodoyss.xaeroatlases.api.FormattingManager;
-import org.molodoyss.xaeroatlases.client.commands.ModClientCommands;
 import org.molodoyss.xaeroatlases.config.ModConfig;
 
 public class ConfigModMenuIntegration implements ModMenuApi {

@@ -5,9 +5,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import org.molodoyss.xaeroatlases.api.FormattingManager;
-import org.molodoyss.xaeroatlases.api.Utils;
 import org.molodoyss.xaeroatlases.config.ModConfig;
-import org.molodoyss.xaeroatlases.payload.ClientboundEnabledCompassCordsPacket;
 
 public class ConfigCommands {
     public static int reloadConfigCommand(CommandContext<CommandSourceStack> context) {

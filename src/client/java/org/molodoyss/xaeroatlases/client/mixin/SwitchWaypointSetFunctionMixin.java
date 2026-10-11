@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import xaero.hud.minimap.controls.key.function.SwitchWaypointSetFunction;
 import xaero.hud.minimap.controls.key.function.WaypointMenuFunction;
 
-@Mixin(SwitchWaypointSetFunction.class)
+@Mixin(value = SwitchWaypointSetFunction.class, remap = false)
 public class SwitchWaypointSetFunctionMixin {
     @Inject(at = @At("HEAD"), method = "onPress", cancellable = true)
     private void cancel(CallbackInfo ci) {

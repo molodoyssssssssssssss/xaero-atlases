@@ -4,21 +4,21 @@ import de.marhali.json5.Json5;
 import de.marhali.json5.Json5Object;
 import de.marhali.json5.Json5Primitive;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.world.level.FoliageColor;
-import net.minecraft.world.level.gamerules.GameRules;
+import net.minecraft.world.level.GameRules;
+import org.molodoyss.xaeroatlases.ModNetworkingConstants;
 import org.molodoyss.xaeroatlases.Xaeroatlases;
 import org.molodoyss.xaeroatlases.api.FormattingManager;
-import org.molodoyss.xaeroatlases.payload.ClientboundEnabledCompassCordsPacket;
-import org.molodoyss.xaeroatlases.payload.ClientboundRDBGameruleValuePacket;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.text.Normalizer;
 
 public class ModConfig {
     public static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("xaeroatlases.json5");
@@ -33,7 +33,9 @@ public class ModConfig {
     }
     public static void setEnabledShowingCoordsWithCompass(boolean value) {
         enableShowingCoordsWithCompass = value;
-        ClientboundEnabledCompassCordsPacket.broadcast(server.getPlayerList().getPlayers(), enableShowingCoordsWithCompass);
+        server.getPlayerList().getPlayers().forEach(player -> {
+            ServerPlayNetworking.send(player, ModNetworkingConstants.CLIENTBOUND_ENABLED_COMPASS_COORDS, new FriendlyByteBuf(PacketByteBufs.create().writeBoolean(enableShowingCoordsWithCompass)));
+        });
         save(CONFIG_PATH.toFile());
     }
 
@@ -43,10 +45,13 @@ public class ModConfig {
     public static void setReducedDebugInfo(boolean value) {
         reducedDebugInfo = value;
         if (server != null) {
-            server.getGameRules().set(GameRules.REDUCED_DEBUG_INFO, value, server);
+            server.getGameRules().getRule(GameRules.RULE_REDUCEDDEBUGINFO).set(value, server);
             Xaeroatlases.LOGGER.info("Updated value of gamerule 'reduced_debug_info' (singleplayer)");
-            ClientboundRDBGameruleValuePacket.broadcast(server.getPlayerList().getPlayers(), value);
+            server.getPlayerList().getPlayers().forEach(player -> {
+                ServerPlayNetworking.send(player, ModNetworkingConstants.CLIENTBOUND_REDUCED_DEBUG_INFO_VALUE, new FriendlyByteBuf(PacketByteBufs.create().writeBoolean(value)));
+            });
         }
+
         save(CONFIG_PATH.toFile());
     }
 
@@ -123,8 +128,10 @@ public class ModConfig {
             FormattingManager.setFormattingDefaultText(obj.get("formatting_default_text").getAsString());
             FormattingManager.setFormattingValueText(obj.get("formatting_value_text").getAsString());
             if (server != null) {
-                server.getGameRules().set(GameRules.REDUCED_DEBUG_INFO, reducedDebugInfo, server);
-                ClientboundRDBGameruleValuePacket.broadcast(server.getPlayerList().getPlayers(), reducedDebugInfo);
+                server.getGameRules().getRule(GameRules.RULE_REDUCEDDEBUGINFO).set(reducedDebugInfo, server);
+                server.getPlayerList().getPlayers().forEach(player -> {
+                    ServerPlayNetworking.send(player, ModNetworkingConstants.CLIENTBOUND_REDUCED_DEBUG_INFO_VALUE, new FriendlyByteBuf(PacketByteBufs.create().writeBoolean(reducedDebugInfo)));
+                });
             }
             stream.close();
             Xaeroatlases.LOGGER.info("Loaded a values from config files!");
