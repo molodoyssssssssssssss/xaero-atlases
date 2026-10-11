@@ -1,0 +1,85 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/house.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "🏠"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/brush.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "🖌"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/diamond.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "💎"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/eye_of_ender.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "👁"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/scroll.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "📜"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/skull.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "💀"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/sword.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "⚔"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/tower.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "🏰"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "minecraft:item/waypoint_tooltip/x.png",
+      "height": 8,
+      "ascent": 8,
+      "chars": [
+        "❌"
+      ]
+    }
+  ]
+}

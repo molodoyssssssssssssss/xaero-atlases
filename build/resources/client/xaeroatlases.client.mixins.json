@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.molodoyss.xaeroatlases.client.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "mixins": [
+    "AddWaypointFunctionMixin",
+    "ControlsHandlerMixin",
+    "SwitchWaypointSetFunctionMixin",
+    "TemporaryWaypointFunctionMixin",
+    "WaypointMenuFunctionMixin"
+  ]
+}

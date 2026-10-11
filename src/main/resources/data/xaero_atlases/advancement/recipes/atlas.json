@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "got_ingredients": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "xaero_atlases:atlas",
+              "minecraft:redstone",
+              "minecraft:iron_ingot",
+              "minecraft:compass",
+              "minecraft:writable_book",
+              "minecraft:book",
+              "minecraft:ink_sac",
+              "minecraft:feather"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "xaero_atlases:atlas"
+    ]
+  }
+}

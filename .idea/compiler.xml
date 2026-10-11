@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="17" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="-AoutRefMapFile=D:\IdeaProjects\XaeroAtlases-1.20.1\build\classes\java\client\client-xaeroatlases-refmap.json -AdefaultObfuscationEnv=named:intermediary -Aquiet=true -AoutMapFileNamedIntermediary=D:\IdeaProjects\XaeroAtlases-1.20.1\build\loom-cache\mixin-map-loom.mappings.1_20_1.layered+hash.2198-v2.client.tiny -AinMapFileNamedIntermediary=C:\Users\molodoyss\.gradle\caches\fabric-loom\1.20.1\loom.mappings.1_20_1.layered+hash.2198-v2\mappings.tiny" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="XaeroAtlases-1.20.1.main" options="-AoutRefMapFile=D:\IdeaProjects\XaeroAtlases-1.20.1\build\classes\java\main\xaeroatlases-refmap.json -AdefaultObfuscationEnv=named:intermediary -Aquiet=true -AoutMapFileNamedIntermediary=D:\IdeaProjects\XaeroAtlases-1.20.1\build\loom-cache\mixin-map-loom.mappings.1_20_1.layered+hash.2198-v2.main.tiny -AinMapFileNamedIntermediary=C:\Users\molodoyss\.gradle\caches\fabric-loom\1.20.1\loom.mappings.1_20_1.layered+hash.2198-v2\mappings.tiny" />
+      <module name="XaeroAtlases-1.20.1.test" options="-AoutRefMapFile=D:\IdeaProjects\XaeroAtlases-1.20.1\build\classes\java\test\test-xaeroatlases-refmap.json -AdefaultObfuscationEnv=named:intermediary -Aquiet=true -AoutMapFileNamedIntermediary=D:\IdeaProjects\XaeroAtlases-1.20.1\build\loom-cache\mixin-map-loom.mappings.1_20_1.layered+hash.2198-v2.test.tiny -AinMapFileNamedIntermediary=C:\Users\molodoyss\.gradle\caches\fabric-loom\1.20.1\loom.mappings.1_20_1.layered+hash.2198-v2\mappings.tiny" />
+    </option>
+  </component>
+</project>
