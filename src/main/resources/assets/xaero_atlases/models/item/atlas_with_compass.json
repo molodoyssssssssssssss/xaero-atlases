@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "xaero_atlases:item/atlas",
+    "layer1": "xaero_atlases:item/atlas_with_compass_layer_1"
+  }
+}
