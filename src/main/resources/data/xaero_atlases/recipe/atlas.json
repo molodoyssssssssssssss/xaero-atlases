@@ -1,8 +1,12 @@
 {
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
-    "minecraft:filled_map",
-    "minecraft:writable_book"
+    {
+      "item": "minecraft:filled_map"
+    },
+    {
+      "item": "minecraft:writable_book"
+    }
   ],
   "result": {
     "id": "xaero_atlases:atlas"

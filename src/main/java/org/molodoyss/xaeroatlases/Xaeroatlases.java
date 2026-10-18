@@ -1,6 +1,7 @@
 package org.molodoyss.xaeroatlases;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.resources.ResourceLocation;
 import org.molodoyss.xaeroatlases.command.ModCommands;
 import org.molodoyss.xaeroatlases.config.ModConfig;
@@ -62,7 +63,8 @@ public class Xaeroatlases implements ModInitializer {
         ModRDBAndEnabledCompassCoordsValueUpdate.init();
         ModItems.init();
         ModLootTableModifier.modify();
-        ModConfig.init();
+        ServerLifecycleEvents.SERVER_STARTED.register(ModConfig::init);
+
         ModCommands.init();
 
         LOGGER.info("Initialized!");

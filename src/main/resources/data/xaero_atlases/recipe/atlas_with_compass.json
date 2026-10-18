@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "compass",
-    "xaero_atlases:atlas"
+    {
+      "item": "compass"
+    },
+    {
+      "item": "xaero_atlases:atlas"
+    }
   ],
   "result": "xaero_atlases:atlas_with_compass"
 }

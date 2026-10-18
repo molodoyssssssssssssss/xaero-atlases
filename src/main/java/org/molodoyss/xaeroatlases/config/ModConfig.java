@@ -1,5 +1,6 @@
 package org.molodoyss.xaeroatlases.config;
 
+import com.terraformersmc.modmenu.util.mod.Mod;
 import de.marhali.json5.Json5;
 import de.marhali.json5.Json5Object;
 import de.marhali.json5.Json5Primitive;
@@ -46,7 +47,7 @@ public class ModConfig {
         reducedDebugInfo = value;
         if (server != null) {
             server.getGameRules().getRule(GameRules.RULE_REDUCEDDEBUGINFO).set(value, server);
-            Xaeroatlases.LOGGER.info("Updated value of gamerule 'reduced_debug_info' (singleplayer)");
+            Xaeroatlases.LOGGER.info("Updated value of gamerule 'reduced_debug_info': %s (singleplayer)".formatted(server.getGameRules().getBoolean(GameRules.RULE_REDUCEDDEBUGINFO)));
             ClientboundReducedDebugInfoValuePayload.send(server.getPlayerList().getPlayers(), value);
         }
 
@@ -54,25 +55,20 @@ public class ModConfig {
     }
 
 
-    public static void init() {
-        if (ModConfig.server != null ) {
-            Xaeroatlases.LOGGER.info("Reloading config!");
-        }
-        boolean[] isDirty = {false};
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
-            if (!isDirty[0]) {
-                ModConfig.server = server;
-                isDirty[0] = true;
-            }
-
-        });
+    public static void init(MinecraftServer server) {
+        Xaeroatlases.LOGGER.info("Initializing server config...");
+        ModConfig.server = server;
+        setReducedDebugInfo(reducedDebugInfo);
         File file = CONFIG_PATH.toFile();
         if (!file.exists()) {
             save(file);
             return;
         }
         load(file);
+    }
 
+    public static void reload() {
+        ModConfig.init(server);
     }
 
     public static void save(File file) {
@@ -122,7 +118,7 @@ public class ModConfig {
             );
             Json5Object obj = json5.parse(json).getAsJson5Object();
             enableShowingCoordsWithCompass = obj.get("enable_coords_with_compass").getAsBoolean();
-            reducedDebugInfo = obj.get("reduced_debug_info").getAsBoolean();
+            setReducedDebugInfo(obj.get("reduced_debug_info").getAsBoolean());
             FormattingManager.setFormattingDefaultText(obj.get("formatting_default_text").getAsString());
             FormattingManager.setFormattingValueText(obj.get("formatting_value_text").getAsString());
             if (server != null) {
