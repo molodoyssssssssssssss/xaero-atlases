@@ -75,6 +75,10 @@ tasks.register("unpackXaerolib", Sync) {
     into layout.buildDirectory.dir("xaerolib")
 }
 
+tasks.named('generateRemapClasspath') {
+    dependsOn 'unpackXaerolib'
+}
+
 compileJava.dependsOn unpackXaerolib
 
 dependencies {

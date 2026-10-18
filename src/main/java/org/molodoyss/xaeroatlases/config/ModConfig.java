@@ -56,25 +56,20 @@ public class ModConfig {
     }
 
 
-    public static void init() {
-        if (ModConfig.server != null ) {
-            Xaeroatlases.LOGGER.info("Reloading config!");
-        }
-        boolean[] isDirty = {false};
-        ServerTickEvents.END_SERVER_TICK.register(server -> {
-            if (!isDirty[0]) {
-                ModConfig.server = server;
-                isDirty[0] = true;
-            }
-
-        });
+    public static void init(MinecraftServer server) {
+        Xaeroatlases.LOGGER.info("Initializing server config...");
+        ModConfig.server = server;
+        setReducedDebugInfo(reducedDebugInfo);
         File file = CONFIG_PATH.toFile();
         if (!file.exists()) {
             save(file);
             return;
         }
         load(file);
+    }
 
+    public static void reload() {
+        ModConfig.init(server);
     }
 
     public static void save(File file) {

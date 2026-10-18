@@ -9,7 +9,7 @@ import org.molodoyss.xaeroatlases.config.ModConfig;
 
 public class ConfigCommands {
     public static int reloadConfigCommand(CommandContext<CommandSourceStack> context) {
-        ModConfig.init();
+        ModConfig.reload();
         context.getSource().sendSystemMessage(Component.translatable("commands.xaero-atlases.config.reload.succesful"));
         return 1;
     }
